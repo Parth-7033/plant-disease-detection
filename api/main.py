@@ -1,5 +1,6 @@
 from io import BytesIO
 
+from pathlib import Path
 import os
 import numpy as np
 import tensorflow as tf
@@ -9,7 +10,12 @@ from fastapi import FastAPI, File, UploadFile
 
 app = FastAPI()
 
-MODEL = tf.keras.models.load_model("../models/1")
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+MODEL_PATH = BASE_DIR / "models" / "1"
+
+MODEL = tf.keras.models.load_model(MODEL_PATH)
+
 CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
 
 
