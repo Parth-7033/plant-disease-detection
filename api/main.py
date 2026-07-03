@@ -1,5 +1,6 @@
 from io import BytesIO
 
+import os
 import numpy as np
 import tensorflow as tf
 import uvicorn
@@ -38,7 +39,7 @@ async def predict(
 
 
 
-import os
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
